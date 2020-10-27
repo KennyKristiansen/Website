@@ -1,0 +1,34 @@
+{% extends "index.html" %}
+{% load mathfilters %}
+{% block tab_title %}
+    {% for recipe in recipes %}
+        <title>{{ recipe.name }}</title>
+    {% endfor %}
+{% endblock %}
+
+{% block picture %}
+    <picture>
+        <img src="{{ recipe.meal_picture_link }}" alt='{{ recipe.meal_picture_link }}'>
+    </picture>
+{% endblock %}
+
+{% block macro_information %}
+    <!-- Recipe macro information -->
+    <h1>{{ recipe.common_key_recipe }} {{ recipe.name }}</h1>
+    <ul>
+        <li>Calories = {{ recipe.calories }} kcal</li>
+        <li>Protein = {{ recipe.protein }} % - {{ recipe.calories|mul:recipe.protein }}</li>
+        # Not working
+        <li>Carbohydrates = {{ recipe.carbs }} %</li>
+        <li>Fat = {{ recipe.fat }} %</li>
+    </ul>
+{% endblock %}
+
+{% block ingredient_information %}
+    <!-- Recipe ingredient information -->
+    <ol>
+        {% for ingredient in ingredients %}
+            <li>{{ ingredient.amount }} {{ ingredient.unit }} {{ ingredient.ingredient }} </li>
+        {% endfor %}
+    </ol>
+{% endblock %}
