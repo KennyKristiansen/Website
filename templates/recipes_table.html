@@ -1,0 +1,8 @@
+{% extends "index.html" %}
+{% load render_table from django_tables2 %}
+{% load mathfilters %}
+{% load bootstrap4 %}
+
+{% block body %}
+    {% render_table table %}
+{% endblock %}

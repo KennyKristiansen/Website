@@ -1,8 +1,11 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from .models import MacrosForm
 from .models import Recipe
+from .models import RecipeTable
+from .forms import MacroForm
+
+import django_tables2 as tables
 
 
 # Create your views here.
@@ -35,13 +38,21 @@ def recipe_by_id(request, id_input):
     })
 
 
+class TableView(tables.SingleTableView):
+    model = Recipe.objects.using('recipe_database')
+    table_class = RecipeTable
+    template_name = 'recipes_table.html'
+
+
 def lookup_by_macros(request):
     queryset = Recipe.objects.using('recipe_database').values('name')
     if request.method == 'POST':
-        form = MacrosForm(request.POST)
+        form = MacroForm(request.POST)
+        if form.is_valid():
+            pass
     else:
-        form = MacrosForm(queryset=queryset)
+        form = MacroForm()
     return render(request, 'lookup_by_macros.html', {
-        'recipes': Recipe.objects.using('recipe_database').all(),
-        'form': form
-    })
+            'recipes': Recipe.objects.using('recipe_database').all(),
+            'form': form
+        })

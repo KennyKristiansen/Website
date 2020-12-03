@@ -1,6 +1,6 @@
 from django import forms
 from django.db import models
-
+import django_tables2 as tables
 
 # Create your models here.
 
@@ -151,6 +151,8 @@ class Steps(models.Model):
         db_table = 'steps'
 
 
-class MacrosForm(forms.ModelChoiceField):
-    macro = forms.CharField()
-    input_field = forms.DecimalField(min_value=0, max_value=100)
+class RecipeTable(tables.Table):
+    class Meta:
+        model = Recipe
+        template_name = "django_tables2/bootstrap.html"
+        fields = ('name', 'calories', 'protein', 'carbs', 'fat', 'description')
