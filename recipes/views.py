@@ -1,22 +1,11 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-
+from django.db.models.functions import Replace
 from .models import Recipe
 from .models import RecipeTable
 from .forms import MacroForm
 
 import django_tables2 as tables
-
-
-# Create your views here.
-# import sqlite3
-#
-# try:
-#     connection = sqlite3.connect(database='C:\\Users\\kenny\\PycharmProjects\\Python '
-#                                           'training\\Exercises\\recipe\\cookbook.sqlite', check_same_thread=False, isolation_level=None)
-#     print(f'connected to recipe database')
-# except sqlite3.Error as e:
-#     print(f'Could not connect to database. Error: {e}')
 
 
 def recipe_index(request):
@@ -42,6 +31,7 @@ class TableView(tables.SingleTableView):
     model = Recipe.objects.using('recipe_database')
     table_class = RecipeTable
     template_name = 'recipes_table.html'
+    queryset = Recipe.objects.using('recipe_database').all()
 
 
 def lookup_by_macros(request):
