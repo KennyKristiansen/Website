@@ -15,7 +15,6 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-RECIPE_DATABASE_DIR = Path(r'C:\Users\kenny\PycharmProjects\Recipe_website\recipe_database')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -84,7 +83,7 @@ DATABASES = {
     },
     'recipe_database': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': RECIPE_DATABASE_DIR / 'cookbook.sqlite',
+        'NAME': BASE_DIR / 'cookbook.sqlite',
     }
 }
 

@@ -32,6 +32,8 @@ class TableView(tables.SingleTableView):
     table_class = RecipeTable
     template_name = 'recipes_table.html'
     queryset = Recipe.objects.using('recipe_database').all()
+    # Remove splitting of tables over several sites
+    tables.SingleTableView.table_pagination = False
 
 
 def lookup_by_macros(request):
