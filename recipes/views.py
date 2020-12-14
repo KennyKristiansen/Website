@@ -1,11 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from django.db.models.functions import Replace
-from .models import Recipe
-from .models import RecipeTable
-from .forms import MacroForm
-
-import django_tables2 as tables
+from recipes.models import Recipe
+from recipes.forms import MacroForm
 
 
 def recipe_index(request):
@@ -25,15 +21,6 @@ def recipe_by_id(request, id_input):
         # 'ingredients': models.Ingredient.objects.using('recipe_database').get(common_key_recipe=recipe_id)
         'ingredients': Recipe.objects.using('recipe_database').get(common_key_recipe=id_input).ingredient_set.all()
     })
-
-
-class TableView(tables.SingleTableView):
-    model = Recipe.objects.using('recipe_database')
-    table_class = RecipeTable
-    template_name = 'recipes_table.html'
-    queryset = Recipe.objects.using('recipe_database').all()
-    # Remove splitting of tables over several sites
-    tables.SingleTableView.table_pagination = False
 
 
 def lookup_by_macros(request):

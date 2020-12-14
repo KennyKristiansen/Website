@@ -83,7 +83,7 @@ DATABASES = {
     },
     'recipe_database': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'cookbook.sqlite',
+        'NAME': BASE_DIR / 'recipe_database' / 'cookbook.sqlite',
     }
 }
 

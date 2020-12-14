@@ -156,5 +156,4 @@ class RecipeTable(tables.Table):
         model = Recipe
         template_name = "django_tables2/bootstrap4.html"
         fields = ('name', 'calories', 'protein', 'carbs', 'fat', 'description')
-        name = tables.Column(attrs={"th": {"id": "foo"}})
 
