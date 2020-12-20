@@ -35,3 +35,4 @@ def lookup_by_macros(request):
             'recipes': Recipe.objects.using('recipe_database').all(),
             'form': form
         })
+

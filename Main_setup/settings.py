@@ -84,7 +84,14 @@ DATABASES = {
     'recipe_database': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'recipe_database' / 'cookbook.sqlite',
+
+    },
+    'nutrient_database': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'recipe_database' / 'nutrients.db',
+
     }
+
 }
 
 # Password validation

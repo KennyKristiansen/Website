@@ -14,7 +14,6 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
-
 import views
 import table_views
 import django_tables2 as tables
@@ -23,6 +22,7 @@ urlpatterns = [
     path('', views.recipe_index, name='recipe_index'),
     path('<int:id_input>', views.recipe_by_id, name='recipe_id_get'),
     path('macros', views.lookup_by_macros, name='lookup_by_macros'),
-    path('table', table_views.TableView.as_view(), name='tables_view')
+    path('table', table_views.TableView.as_view(), name='tables_view'),
+    path('nutrients', table_views.TableViewNutrients.as_view(), name='nutrients_view')
 
 ]
