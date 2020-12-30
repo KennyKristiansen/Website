@@ -1,6 +1,7 @@
 from recipes.models import Recipe, Nutrient
 from recipes.models import RecipeTable, NutrientTable
 import django_tables2 as tables
+from django_filters.views import FilterView
 
 
 class TableView(tables.SingleTableView):
@@ -12,7 +13,7 @@ class TableView(tables.SingleTableView):
     tables.SingleTableView.table_pagination = False
 
 
-class TableViewNutrients(tables.SingleTableView):
+class TableViewNutrients(tables.SingleTableView, FilterView):
     model = Nutrient.objects.using('nutrient_database')
     table_class = NutrientTable
     template_name = 'recipes_table.html'

@@ -128,13 +128,13 @@ class Ingredient(models.Model):
 
 class Recipe(models.Model):
     common_key_recipe = models.IntegerField(primary_key=True, blank=False, null=False)
-    name = models.TextField(blank=True, null=True)
-    link = models.TextField(blank=True, null=True)
-    description = models.TextField(blank=True, null=True)
-    calories = models.IntegerField(blank=True, null=True)
-    protein = models.IntegerField(blank=True, null=True)
-    carbs = models.IntegerField(blank=True, null=True)
-    fat = models.IntegerField(blank=True, null=True)
+    Navn = models.TextField(db_column='name', blank=True, null=True)
+    Link = models.TextField(db_column='link', blank=True, null=True)
+    Beskrivelse = models.TextField(db_column='description', blank=True, null=True)
+    Kalorier = models.IntegerField(db_column='calories', blank=True, null=True)
+    Protein = models.IntegerField(db_column='protein', blank=True, null=True)
+    Kulhydrater = models.IntegerField(db_column='carbs', blank=True, null=True)
+    Fedt = models.IntegerField(db_column='fat', blank=True, null=True)
 
     class Meta:
         managed = False
@@ -155,7 +155,7 @@ class RecipeTable(tables.Table):
     class Meta:
         model = Recipe
         template_name = "django_tables2/bootstrap4.html"
-        fields = ('name', 'calories', 'protein', 'carbs', 'fat', 'description')
+        fields = ('Navn', 'Kalorier', 'Protein', 'Kulhydrater', 'Fedt', 'Beskrivelse')
 
 
 class Nutrient(models.Model):
@@ -169,14 +169,14 @@ class Nutrient(models.Model):
     energi_kcal = models.IntegerField(db_column='Energi-kcal', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     nitrogen_til_protein_faktor = models.FloatField(db_column='Nitrogen-til-protein-faktor', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     nitrogen_total = models.FloatField(db_column='Nitrogen-total', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    protein_videnskabelig = models.FloatField(db_column='Protein-videnskabelig', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    protein = models.FloatField(db_column='Protein-videnskabelig', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     protein_deklaration = models.FloatField(db_column='Protein-deklaration', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     kulhydrat_difference_field = models.FloatField(db_column='Kulhydrat-difference-', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
-    kulhydrat_tilgængelig = models.FloatField(db_column='Kulhydrat-tilgængelig', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    kulhydrat = models.FloatField(db_column='Kulhydrat-tilgængelig', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     kulhydrat_deklaration = models.FloatField(db_column='Kulhydrat-deklaration', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     tilsat_sukker = models.FloatField(db_column='Tilsat-sukker', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     kostfibre = models.FloatField(db_column='Kostfibre', blank=True, null=True)  # Field name made lowercase.
-    fedt_total = models.FloatField(db_column='Fedt-total', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    fedt = models.FloatField(db_column='Fedt-total', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     fcf = models.FloatField(db_column='FCF', blank=True, null=True)  # Field name made lowercase.
     alkohol = models.FloatField(db_column='Alkohol', blank=True, null=True)  # Field name made lowercase.
     aske = models.FloatField(db_column='Aske', blank=True, null=True)  # Field name made lowercase.
@@ -296,4 +296,4 @@ class NutrientTable(tables.Table):
     class Meta:
         model = Nutrient
         template_name = "django_tables2/bootstrap4.html"
-        fields = ('id', 'navn', 'energi_kj', 'protein_videnskabelig', 'kulhydrat_tilgængelig', 'fedt_total', 'svind')
+        fields = ('id', 'navn', 'energi_kcal', 'protein', 'kulhydrat', 'fedt', 'svind')

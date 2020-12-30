@@ -10,6 +10,10 @@ def recipe_index(request):
     })
 
 
+def homepage(request):
+    return render(request, 'homepage.html')
+
+
 def recipe_get(request, id_input):
     recipe_name = Recipe.objects.using('recipe_database').get(common_key_recipe=id_input).name
     return HttpResponse(recipe_name)
