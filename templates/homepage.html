@@ -55,39 +55,40 @@
  <div class="container" style="margin-top:30px">
   <div class="row">
     <div class="col-sm-4">
-      <h2>About Me</h2>
-        <img src="{% static 'homepage/me.jpg' %}" alt="Picture of me">
-        <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-      <h3>Some Links</h3>
-      <p>Lorem ipsum dolor sit ame.</p>
+      <h2>Lidt Om Mig</h2>
+
+        <img src="{% static 'homepage/me.jpg' %}" alt="Picture of me" class="img-fluid">
+        <p>Maskinmester som interesserer sig for kost og motion, samt et drys af programmering.</p>
+      <h3>Placeholder til links</h3>
+      <p>Herunder vil der komme relevante links, til hvad jeg syntes er værd at tage et kig på.</p>
       <ul class="nav nav-pills flex-column">
         <li class="nav-item">
-          <a class="nav-link active" href="#">Active</a>
+          <a class="nav-link active" href="#">Aktiveret link</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link disabled" href="#">Deaktiveret link</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link disabled" href="#">Deaktiveret link</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
+          <a class="nav-link disabled" href="#">Deaktiveret link</a>
         </li>
       </ul>
       <hr class="d-sm-none">
     </div>
     <div class="col-sm-8">
-      <h2>TITLE HEADING</h2>
-      <h5>Title description, Dec 7, 2017</h5>
-      <div class="fakeimg">Fake Image</div>
-      <p>Some text..</p>
-      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+      <h2>Værktøj #1</h2>
+      <h5>Database over næringsindhold</h5>
+      <img src="{% static 'homepage/nutrient_database.jpg' %}" alt="Picture of tool #1" class="img-fluid">
+      <p>En database over næringsindhold i forskellige fødevarer, offentliggjort af www.frida.fooddata.dk. Hertil er der også inkorporeret en samling af opskrifter fra www.arla.dk </p>
+      <p>Projektet fungerer som øvelse i SQL og Django.</p>
       <br>
-      <h2>TITLE HEADING</h2>
-      <h5>Title description, Sep 2, 2017</h5>
+      <h2>Værktøj #2</h2>
+      <h5>Fødevaredeklarations scanner</h5>
       <div class="fakeimg">Fake Image</div>
-      <p>Some text..</p>
-      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+      <p>Et værktøj til analysering af billeder, som identificere tekst og bearbejder det, og udplukker det ønskede tekst. På den måde kan en database over fødevaredeklarationer hurtigt og nemt skabes.</p>
+      <p>Projektet fungerer som øvelse i Python, ML og databehandling.</p>
     </div>
   </div>
 </div>
