@@ -11,7 +11,7 @@ def recipe_index(request):
 
 
 def homepage(request):
-    return render(request, 'index.html')
+    return render(request, 'base.html')
 
 
 def recipe_get(request, id_input):
